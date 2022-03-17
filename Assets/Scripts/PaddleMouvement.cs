@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PaddleMouvement : MonoBehaviour
 {
-    public float speed = 30;
+    public float speed = 10;
     public string axis = "Vertical";
 
     void FixedUpdate(){
