@@ -9,7 +9,6 @@ public class Ball : MonoBehaviour
 
     void Start()
     {
-
         ballDir = Random.Range(0, 2);
         Invoke("StartMatch", 1);
     }
