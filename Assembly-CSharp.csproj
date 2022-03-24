@@ -38,9 +38,11 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Ball.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\AI_player.cs" />
      <Compile Include="Assets\Scripts\WallScore.cs" />
      <Compile Include="Assets\Scripts\PaddleMouvement.cs" />
-     <Compile Include="Assets\Scripts\AI_player.cs" />
+     <Compile Include="Assets\Scripts\Menu.cs" />
+     <Compile Include="Assets\Scripts\PaddleMouvement2.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.15f2\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
