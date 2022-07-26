@@ -6,11 +6,14 @@ public class Ball : MonoBehaviour
 {
     public float speed = 10;
     private float ballDir;
+    public AudioClip collisionAudio;
 
     void Start()
     {
         ballDir = Random.Range(0, 2);
         Invoke("StartMatch", 1);
+        GetComponent<AudioSource>().playOnAwake = false;
+        GetComponent<AudioSource>().clip = collisionAudio;
     }
 
     public void StartMatch()
@@ -50,6 +53,7 @@ public class Ball : MonoBehaviour
                                 col.collider.bounds.size.y);
             Vector2 dir = new Vector2(1, y).normalized;
             GetComponent<Rigidbody2D>().velocity = dir * speed;
+            GetComponent<AudioSource> ().Play ();
         }
         if (col.gameObject.name == "player_2")
         {
@@ -58,6 +62,7 @@ public class Ball : MonoBehaviour
                                 col.collider.bounds.size.y);
             Vector2 dir = new Vector2(-1, y).normalized;
             GetComponent<Rigidbody2D>().velocity = dir * speed;
+            GetComponent<AudioSource> ().Play ();
         }
     }
 }
