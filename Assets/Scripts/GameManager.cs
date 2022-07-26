@@ -6,14 +6,17 @@ public class GameManager : MonoBehaviour
 {
     public int Player1Score = 0;
     public int Player2Score = 0;
+    public int WinningScore = 10;
     public GameObject Player1;
     public GameObject Player2;
     public GameObject Ball;
+    public GameObject DottedLine;
     public Text player1ScoreText;
     public Text player2ScoreText;
     public Text Player1WinsText;
     public Text Player2WinsText;
     public Text NewGameText;
+    public AudioSource bgAudio;
 
     public static GameManager instance;
     private void Awake()
@@ -27,6 +30,7 @@ public class GameManager : MonoBehaviour
 
             instance = this;
         }
+        bgAudio.Play();
         Player1WinsText.gameObject.SetActive(false);
         Player2WinsText.gameObject.SetActive(false);
         NewGameText.gameObject.SetActive(false);
@@ -66,6 +70,7 @@ public class GameManager : MonoBehaviour
         Player2.transform.position = new Vector2(8, 0);
         Player1WinsText.gameObject.SetActive(false);
         Player2WinsText.gameObject.SetActive(false);
+        DottedLine.gameObject.SetActive(true);
         NewGameText.gameObject.SetActive(false);
         Ball.gameObject.SetActive(true);
     }
@@ -86,16 +91,18 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        if (Player1Score == 2)
+        if (Player1Score == WinningScore)
         {
             Player1WinsText.gameObject.SetActive(true);
+            DottedLine.gameObject.SetActive(false);
             NewGameText.gameObject.SetActive(true);
             Ball.gameObject.SetActive(false);
             ResetGame();
         }
-        else if (Player2Score == 2)
+        else if (Player2Score == WinningScore)
         {
             Player2WinsText.gameObject.SetActive(true);
+            DottedLine.gameObject.SetActive(false);
             NewGameText.gameObject.SetActive(true);
             Ball.gameObject.SetActive(false);
             ResetGame();
